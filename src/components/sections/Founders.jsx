@@ -13,6 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Tooltip, TooltipProvider } from "../ui/tooltip";
 import { TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { CardlPatternImg } from "@/assets";
+import Motion from "../Motion";
 
 const founderList = [
   {
@@ -162,7 +163,20 @@ export default function Founders() {
           {founderList.map(
             ({ fullName, avatar, position, info, socials }, index) => {
               return (
-                <li
+                <Motion
+                  type="li"
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3,
+                  }}
+                  initial={{
+                    opacity: 0,
+                    x: -50,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
                   key={index}
                   className="border border-black bg-white rounded-[85px] p-10 relative overflow-hidden"
                 >
@@ -215,7 +229,7 @@ export default function Founders() {
                       );
                     })}
                   </div>
-                </li>
+                </Motion>
               );
             }
           )}

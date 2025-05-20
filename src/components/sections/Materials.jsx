@@ -5,12 +5,10 @@ import { useEffect, useReducer, useState } from "react";
 import { toast } from "sonner";
 import MaterialsSkleton from "../loaders/MaterialsSkleton";
 import { Button } from "../ui/button";
-import { DashIcon } from "@radix-ui/react-icons";
+import { useAppStore } from "@/lib/zustand";
 
 const initialState = {
-  data: {
-    materials: [],
-  },
+  materials: [],
   loading: false,
   skip: 0,
   limit: 8,
@@ -19,43 +17,38 @@ const initialState = {
 
 function reducerFuntion(state, { type, payload }) {
   switch (type) {
-    case "data":
+    case "set":
       return {
         ...state,
-        [type]: {
-          materials: [...state.data.materials, ...payload.data],
-        },
+        materials: payload.data,
         loading: false,
+        total: payload.total,
         more: payload.total >= state.skip + state.limit,
+      };
+    case "add":
+      return {
+        ...state,
+        materials: [...state.materials, ...payload.data],
+        more: state.total >= state.skip + state.limit,
       };
     case "loading":
       return { ...state, [type]: payload };
     case "skip":
       return { ...state, [type]: state[type] + payload };
-
     default:
       return state;
   }
 }
 
 export default function Materials() {
-  const [
-    {
-      data: { materials },
-      loading,
-      skip,
-      limit,
-      more,
-    },
-    dispatch,
-  ] = useReducer(reducerFuntion, initialState);
-  console.log(skip);
+  const [state, dispatch] = useReducer(reducerFuntion, initialState);
+  const { materials, loading, skip, limit, more } = state;
 
   useEffect(() => {
     dispatch({ type: "loading", payload: true });
-    getData("/materials", { limit, skip })
+    getData("/materials", { skip, limit })
       .then((res) => {
-        dispatch({ type: "data", payload: res });
+        dispatch({ type: "set", payload: res });
       })
       .catch(({ message }) => {
         toast.error(message);
@@ -63,6 +56,22 @@ export default function Materials() {
       .finally(() => {
         dispatch({ type: "loading", payload: false });
       });
+  }, []);
+
+  useEffect(() => {
+    if (materials.length > 0) {
+      dispatch({ type: "loading", payload: true });
+      getData("/materials", { limit, skip })
+        .then((res) => {
+          dispatch({ type: "add", payload: res });
+        })
+        .catch(({ message }) => {
+          toast.error(message);
+        })
+        .finally(() => {
+          dispatch({ type: "loading", payload: false });
+        });
+    }
   }, [skip]);
 
   function handleClick() {

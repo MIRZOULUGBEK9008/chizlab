@@ -1,4 +1,5 @@
 import { AboutUsPatternImg } from "@/assets";
+import Motion from "../Motion";
 
 const cardData = [
   {
@@ -52,7 +53,20 @@ export default function AboutUs() {
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {cardData.map(({ title, body }, index) => {
             return (
-              <li
+              <Motion
+                type="li"
+                transition={{
+                  duration: 0.5,
+                  delay: 0.3,
+                }}
+                initial={{
+                  opacity: 0,
+                  x: -50,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
                 className="border border-black bg-white rounded-xl pt-12 pb-16 pl-10 pr-16 relative overflow-hidden md:min-h-[370px]"
                 key={index}
               >
@@ -68,7 +82,7 @@ export default function AboutUs() {
                   alt=""
                   aria-hidden={true}
                 />
-              </li>
+              </Motion>
             );
           })}
         </ul>

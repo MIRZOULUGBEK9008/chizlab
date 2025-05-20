@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function ImageWithFallback(props) {
-  const [fallback, setFallback] = useState(null);
+  const [fallback, setFallback] = useState(false);
   return (
     <Image
       {...props}
       onError={() => {
-        setFallback(placeholderImg);
+        setFallback(true);
       }}
-      src={fallback === null ? props.src : fallback}
+      src={!fallback && props.src ? props.src : placeholderImg}
       placeholder="blur"
       blurDataURL={placeholderImg}
     />

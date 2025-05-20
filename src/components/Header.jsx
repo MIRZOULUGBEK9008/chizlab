@@ -5,6 +5,8 @@ import TestMode from "./TestMode";
 import { useAppStore } from "@/lib/zustand";
 import { LogoBlackImg } from "@/assets";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import SearchMaterials from "./SearchMaterials";
 
 function Header() {
   const { mobileNavbar, setMobileNavbar } = useAppStore();
@@ -20,16 +22,16 @@ function Header() {
           mobileNavbar ? "border-b-slate-200" : "border-transparent"
         }`}
       >
-        <div className="base-container flex items-center justify-between md:justify-center">
-          <div className="flex justify-center items-center">
-            <Link className="hover:opacity-80" tabIndex="-1" href="/">
-              <img
-                className="w-[221px] h-[52px]"
-                src={LogoBlackImg.src}
-                alt="Chizlab logo"
-              />
-            </Link>
-          </div>
+        <div className="base-container flex items-center justify-between gap-10">
+          <Link className="hover:opacity-80" tabIndex="-1" href="/">
+            <img
+              className="w-[221px] h-[52px]"
+              src={LogoBlackImg.src}
+              alt="Chizlab logo"
+            />
+          </Link>
+
+          <SearchMaterials />
 
           <Button
             onClick={handleClick}
