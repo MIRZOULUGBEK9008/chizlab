@@ -11,7 +11,7 @@ export default function Hero() {
           {/* Adabiyotlar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-br-[70px] overflow-hidden">
             <div className="flex flex-col items-center p-14 lg:pr-[100px]">
-              <h2 className="font-medium text-4xl mb-5 uppercase">
+              <h2 className="font-medium text-4xl mb-0 uppercase">
                 Adabiyotlar
               </h2>
               <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
@@ -28,7 +28,7 @@ export default function Hero() {
           {/* Taqdimotlar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-bl-[70px] overflow-hidden">
             <div className="flex flex-col items-center p-14 lg:pl-[100px]">
-              <h2 className="font-medium text-4xl mb-5 uppercase">
+              <h2 className="font-medium text-4xl mb-0 uppercase">
                 Taqdimotlar
               </h2>
               <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
@@ -45,7 +45,7 @@ export default function Hero() {
           {/* Maqolalar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-tr-[70px] overflow-hidden">
             <div className="flex flex-col items-center p-14 lg:pr-[100px]">
-              <h2 className="font-medium text-4xl mb-5 uppercase">Maqolalar</h2>
+              <h2 className="font-medium text-4xl mb-0 uppercase">Maqolalar</h2>
               <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
                 Ro'yhati
                 <ArrowRight />
@@ -60,7 +60,7 @@ export default function Hero() {
           {/* Videolar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-tl-[70px] overflow-hidden">
             <div className="flex flex-col items-center p-14 lg:pl-[100px]">
-              <h2 className="font-medium text-4xl mb-5 uppercase">Videolar</h2>
+              <h2 className="font-medium text-4xl mb-0 uppercase">Videolar</h2>
               <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
                 Ro'yhati
                 <ArrowRight />

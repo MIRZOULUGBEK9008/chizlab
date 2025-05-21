@@ -48,7 +48,7 @@ function Footer() {
       <img
         src={WhitePatternImg.src}
         alt="icon"
-        className="bottom-0 right-0 absolute w-52 h-52 aspect-square"
+        className="bottom-0 right-0 absolute max-w-[190px] max-h-[190px] aspect-square"
       />
       <div className="base-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center justify-items-start sm:items-start grid-rows-4 sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 lg:grid-cols-4">
         <div className="flex flex-col row-start-4 sm:row-start-3 md:row-start-2 lg:row-start-1">
