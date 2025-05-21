@@ -124,4 +124,7 @@
   .base-container {
     @apply w-full max-w-[1440px] sm:px-5 px-3 mx-auto;
   }
+  .cta-notification > div {
+    @apply !w-full;
+  }
 }
