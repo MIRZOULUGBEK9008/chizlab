@@ -16,6 +16,7 @@ function Header() {
 
   return (
     <div>
+      <p>test</p>
       <TestMode />
       <header
         className={`lg:py-5 py-3 relative transition-colors duration-300 z-50 bg-white sm:bg-transparent border-b ${
