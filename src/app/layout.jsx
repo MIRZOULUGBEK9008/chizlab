@@ -63,6 +63,18 @@ export const metadata = {
 export default function layout({ children }) {
   return (
     <html className="h-full" lang="uz">
+      <head>
+        {/* Google analitika  */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XFC7PF8NCZ"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-XFC7PF8NCZ');
+        </script>
+      </head>
       <body
         className={`${gilroyFont.className} antialiased flex flex-col h-full bg-body bg-cover`}
       >
