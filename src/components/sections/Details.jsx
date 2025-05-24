@@ -33,7 +33,9 @@ export default async function Details({ params }) {
             href={"/"}
           >
             <ArrowLeft />
-            {title}
+            <span className="text-2xl lg:text-4xl break-words whitespace-normal w-full">
+              {title}
+            </span>
           </Link>
           <div className="flex flex-col md:flex-row gap-10">
             <ImageWithFallback
