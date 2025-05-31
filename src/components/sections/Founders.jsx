@@ -1,5 +1,6 @@
 "use client";
 import { Abdurazzoq, Islam, Mutabarxon } from "@/assets/avatars";
+import Durdona from "@/assets/avatars/durdona.jpg";
 import {
   BehanceIcon,
   EmailIcon,
@@ -123,6 +124,34 @@ const founderList = [
     position: "Frontend dasturchi",
     info: ["Najot Ta'lim", "Frontend dasturchi"],
     avatar: null,
+    socials: [
+      {
+        text: "Telegram",
+        icon: <Icon icon={TelegramIcon} />,
+        url: "",
+      },
+      {
+        text: "GitHub",
+        icon: <Icon icon={GitHubIcon} />,
+        url: "",
+      },
+      {
+        text: "Sayt",
+        icon: <Icon icon={SiteIcon} />,
+        url: "",
+      },
+      {
+        text: "Email",
+        icon: <Icon icon={EmailIcon} />,
+        url: "",
+      },
+    ],
+  },
+  {
+    fullName: "Durdonaxon Mo‘ydinjonova",
+    position: "Frontend dasturchi",
+    info: ["FDTU, Najot Ta'lim", "Frontend dasturchi"],
+    avatar: Durdona,
     socials: [
       {
         text: "Telegram",

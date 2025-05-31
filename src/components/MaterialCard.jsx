@@ -19,7 +19,7 @@ export default function MaterialCard({ info }) {
     <Card onClick={handleClick} className="overflow-hidden cursor-pointer">
       <figure className="bg-primary-foreground relative">
         <ImageWithFallback
-          className="object-cover w-full h-[440px]"
+          className="object-contain w-full h-auto block" 
           alt={title}
           width={230}
           height={325}
