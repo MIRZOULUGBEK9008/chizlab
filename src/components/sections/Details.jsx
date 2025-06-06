@@ -1,9 +1,10 @@
 import { getDataById } from "@/requests";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Badge } from "../ui/badge";
 import ImageWithFallback from "../ImageWithFallback";
 import Link from "next/link";
+import YouTubeWatcher from "../YouTubeWatcher";
 
 export default async function Details({ params }) {
   try {
@@ -16,7 +17,7 @@ export default async function Details({ params }) {
       publishedAt,
       language,
       country,
-      volume,
+      size,
       keywords,
       summary,
       isNew,
@@ -79,8 +80,10 @@ export default async function Details({ params }) {
                   <strong className="font-medium">{country}</strong>
                 </span>
                 <span className="rounded-md bg-white px-2 py-1 inline-flex flex-col">
-                  Sahifalar soni:
-                  <strong className="font-medium">{volume}</strong>
+                  {resourceType === "Video"
+                    ? "Davomiyligi:"
+                    : "Sahifalar soni:"}
+                  <strong className="font-medium">{size}</strong>
                 </span>
 
                 {/* Keywords */}
@@ -113,15 +116,23 @@ export default async function Details({ params }) {
               </div>
 
               <p className="text-lg font-medium mb-5">{summary}</p>
-              <a
-                className={`${buttonVariants({
-                  variant: "default",
-                })} !bg-expensive-green`}
-                href={source}
-                target="_blank"
-              >
-                Yuklab olish
-              </a>
+              {resourceType === "Video" ? (
+                <YouTubeWatcher
+                  title={title}
+                  summary={summary}
+                  source={source}
+                />
+              ) : (
+                <a
+                  className={`${buttonVariants({
+                    variant: "default",
+                  })} !bg-expensive-green`}
+                  href={source}
+                  target="_blank"
+                >
+                  Yuklab olish
+                </a>
+              )}
             </div>
           </div>
         </div>
