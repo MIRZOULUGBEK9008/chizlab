@@ -1,5 +1,5 @@
 import { getDataById } from "@/requests";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Badge } from "../ui/badge";
 import ImageWithFallback from "../ImageWithFallback";

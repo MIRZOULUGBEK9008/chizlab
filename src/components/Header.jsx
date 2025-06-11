@@ -73,7 +73,7 @@ function Header() {
 
           <Button
             onClick={handleClick}
-            className="sm:hidden"
+            className="sm:hidden shrink-0"
             size="icon"
             variant="outline"
           >

@@ -10,11 +10,18 @@ export default function Hero() {
         <div className="grid gap-5 grid-cols-1 lg:grid-cols-2">
           {/* Adabiyotlar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-br-[70px] overflow-hidden">
-            <div className="flex flex-col items-center p-14 lg:pr-[100px]">
+            <div className="flex flex-col items-center relative p-14 lg:pr-[100px]">
               <h2 className="font-medium text-4xl mb-0 uppercase">
                 Adabiyotlar
               </h2>
-              <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
+              <Link
+                className={`${buttonVariants({
+                  variant: "ghost",
+                })} before:absolute before:inset-0`}
+                href={
+                  "/resources?resourceType=O'quv qo'llanma|Darslik|Monografiya"
+                }
+              >
                 Ro'yhati
                 <ArrowRight />
               </Link>
@@ -27,11 +34,16 @@ export default function Hero() {
           </div>
           {/* Taqdimotlar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-bl-[70px] overflow-hidden">
-            <div className="flex flex-col items-center p-14 lg:pl-[100px]">
+            <div className="flex flex-col items-center relative p-14 lg:pl-[100px]">
               <h2 className="font-medium text-4xl mb-0 uppercase">
                 Taqdimotlar
               </h2>
-              <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
+              <Link
+                className={`${buttonVariants({
+                  variant: "ghost",
+                })} before:absolute before:inset-0`}
+                href={"/resources?resourceType=Taqdimot"}
+              >
                 Ro'yhati
                 <ArrowRight />
               </Link>
@@ -44,9 +56,14 @@ export default function Hero() {
           </div>
           {/* Maqolalar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-tr-[70px] overflow-hidden">
-            <div className="flex flex-col items-center p-14 lg:pr-[100px]">
+            <div className="flex flex-col items-center relative p-14 lg:pr-[100px]">
               <h2 className="font-medium text-4xl mb-0 uppercase">Maqolalar</h2>
-              <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
+              <Link
+                className={`${buttonVariants({
+                  variant: "ghost",
+                })} before:absolute before:inset-0`}
+                href={"/resources?resourceType=Taqdimot|Tezis"}
+              >
                 Ro'yhati
                 <ArrowRight />
               </Link>
@@ -59,9 +76,14 @@ export default function Hero() {
           </div>
           {/* Videolar */}
           <div className="border border-black relative bg-white rounded-2xl lg:rounded-tl-[70px] overflow-hidden">
-            <div className="flex flex-col items-center p-14 lg:pl-[100px]">
+            <div className="flex flex-col items-center relative p-14 lg:pl-[100px]">
               <h2 className="font-medium text-4xl mb-0 uppercase">Videolar</h2>
-              <Link className={buttonVariants({ variant: "ghost" })} href={"/"}>
+              <Link
+                className={`${buttonVariants({
+                  variant: "ghost",
+                })} before:absolute before:inset-0`}
+                href={"/resources?resourceType=Video"}
+              >
                 Ro'yhati
                 <ArrowRight />
               </Link>

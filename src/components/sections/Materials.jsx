@@ -5,7 +5,6 @@ import { useEffect, useReducer, useState } from "react";
 import { toast } from "sonner";
 import MaterialsSkleton from "../loaders/MaterialsSkleton";
 import { Button } from "../ui/button";
-import { useAppStore } from "@/lib/zustand";
 
 const initialState = {
   materials: [],
