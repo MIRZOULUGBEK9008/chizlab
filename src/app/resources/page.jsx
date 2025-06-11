@@ -12,7 +12,7 @@ export default function page() {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
+  const searchParams = new URL().searchParams;
   const resourceType = searchParams.get("resourceType");
 
   useEffect(() => {
