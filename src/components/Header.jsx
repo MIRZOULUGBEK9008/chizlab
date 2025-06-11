@@ -6,7 +6,6 @@ import {
   DashIcon,
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
-import TestMode from "./TestMode";
 import { useAppStore } from "@/lib/zustand";
 import { LogoBlackImg } from "@/assets";
 import Link from "next/link";
@@ -56,7 +55,6 @@ function Header() {
 
   return (
     <div>
-      <TestMode />
       <header
         className={`lg:py-5 py-3 relative transition-colors duration-300 z-50 bg-white sm:bg-transparent border-b ${
           mobileNavbar ? "border-b-slate-200" : "border-transparent"
