@@ -4,7 +4,7 @@ import MaterialCard from "@/components/MaterialCard";
 import { Button } from "@/components/ui/button";
 import { getData } from "@/requests";
 import { ArrowLeft } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -12,7 +12,7 @@ export default function page() {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const searchParams = new URL().searchParams;
+  const searchParams = new URLSearchParams();
   const resourceType = searchParams.get("resourceType");
 
   useEffect(() => {
