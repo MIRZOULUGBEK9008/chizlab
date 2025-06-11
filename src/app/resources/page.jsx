@@ -4,30 +4,49 @@ import MaterialCard from "@/components/MaterialCard";
 import { Button } from "@/components/ui/button";
 import { getData } from "@/requests";
 import { ArrowLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function page() {
   const router = useRouter();
+  const [resourceType, setRecourceType] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const searchParams = new URLSearchParams();
-  const resourceType = searchParams.get("resourceType");
+  // const searchParams =
+  // const resourceType = searchParams.get("resourceType");
 
   useEffect(() => {
-    setLoading(true);
-    getData("/materials", { resourceType })
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch(({ message }) => {
-        toast.error(message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (window) {
+      console.log(1);
+
+      setRecourceType(
+        new URL(window.location.href).searchParams.get("resourceType")
+      );
+    }
   }, []);
+
+  console.log("resourceType: ", resourceType);
+
+  useEffect(() => {
+    if (resourceType) {
+      setLoading(true);
+      getData("/materials", { resourceType })
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch(({ message }) => {
+          toast.error(message);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+
+    return () => {
+      setRecourceType(null);
+    };
+  }, [resourceType]);
 
   function handleClick() {
     router.back();
