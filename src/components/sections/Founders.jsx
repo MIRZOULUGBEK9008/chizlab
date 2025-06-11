@@ -1,5 +1,6 @@
 "use client";
 import { Abdurazzoq, Islam, Mutabarxon } from "@/assets/avatars";
+import Durdona from "@/assets/avatars/durdona.jpg";
 import {
   BehanceIcon,
   EmailIcon,
@@ -17,6 +18,8 @@ import Motion from "../Motion";
 
 const founderList = [
   {
+    firstName: "Mo‘tabarxon",
+    lastName: "Turdaliyeva",
     fullName: "Mo‘tabarxon Turdaliyeva",
     position: "G‘oya muallifi & dizayner",
     info: ["FarDu, Najot Ta'lim", "Grafik dizayner"],
@@ -45,6 +48,8 @@ const founderList = [
     ],
   },
   {
+    firstName: "Mirzo Ulug‘bek",
+    lastName: "Xudoyberdiyev",
     fullName: "Mirzo Ulug‘bek Xudoyberdiyev",
     position: "Bosh dasturchi",
     info: ["Najot Ta'lim", "Frontend dasturchi"],
@@ -63,6 +68,8 @@ const founderList = [
     ],
   },
   {
+    firstName: "Islom",
+    lastName: "Ismoilov",
     fullName: "Islom Ismoilov",
     position: "Art director",
     info: ["Najot Ta'lim", "Grafik dizayner"],
@@ -91,6 +98,8 @@ const founderList = [
     ],
   },
   {
+    firstName: "Abdurazzoq",
+    lastName: "Abdusalomov",
     fullName: "Abdurazzoq Abdusalomov",
     position: "Backend dasturchi",
     info: ["Najot Ta'lim", "Backend dasturchi"],
@@ -119,10 +128,42 @@ const founderList = [
     ],
   },
   {
+    firstName: "Oyatillo",
+    lastName: "Toshtemirov",
     fullName: "Oyatillo Toshtemirov",
     position: "Frontend dasturchi",
     info: ["Najot Ta'lim", "Frontend dasturchi"],
     avatar: null,
+    socials: [
+      {
+        text: "Telegram",
+        icon: <Icon icon={TelegramIcon} />,
+        url: "",
+      },
+      {
+        text: "GitHub",
+        icon: <Icon icon={GitHubIcon} />,
+        url: "",
+      },
+      {
+        text: "Sayt",
+        icon: <Icon icon={SiteIcon} />,
+        url: "",
+      },
+      {
+        text: "Email",
+        icon: <Icon icon={EmailIcon} />,
+        url: "",
+      },
+    ],
+  },
+  {
+    firstName: "Durdonaxon",
+    lastName: "Mo‘ydinjonova",
+    fullName: "Durdonaxon Mo‘ydinjonova",
+    position: "Frontend dasturchi",
+    info: ["FDTU, Najot Ta'lim", "Frontend dasturchi"],
+    avatar: Durdona,
     socials: [
       {
         text: "Telegram",
@@ -161,7 +202,18 @@ export default function Founders() {
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {founderList.map(
-            ({ fullName, avatar, position, info, socials }, index) => {
+            (
+              {
+                fullName,
+                avatar,
+                position,
+                info,
+                socials,
+                firstName,
+                lastName,
+              },
+              index
+            ) => {
               return (
                 <Motion
                   type="li"
@@ -186,8 +238,11 @@ export default function Founders() {
                     aria-hidden={true}
                   />
                   <div className="flex md:items-center flex-col md:flex-row  justify-between gap-5 mb-5">
-                    <h3 className="text-2xl font-medium">{fullName}</h3>
-                    <Avatar className="w-[100px] h-[100px] -order-1">
+                    <div>
+                      <h3 className="text-2xl font-medium">{firstName}</h3>
+                      <h3 className="text-2xl font-medium">{lastName}</h3>
+                    </div>
+                    <Avatar className="w-[100px] h-[100px]">
                       <AvatarImage src={avatar && avatar.src} />
                       <AvatarFallback className="text-3xl font-medium">
                         {fullName[0]}
